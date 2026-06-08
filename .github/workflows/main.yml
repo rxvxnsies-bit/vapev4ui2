@@ -10,7 +10,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Extract zip
-        run: unzip OpenMyau-VapeUI.zip
+        run: unzip "OpenMyau-VapeUI (1).zip"
       - name: Build
         run: cd OpenMyau-Vape && chmod +x gradlew && ./gradlew build
       - uses: actions/upload-artifact@v4
