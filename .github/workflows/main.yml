@@ -1,0 +1,19 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Extract zip
+        run: unzip OpenMyau-VapeUI.zip
+      - name: Build
+        run: cd OpenMyau-Vape && chmod +x gradlew && ./gradlew build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mod-jar
+          path: OpenMyau-Vape/build/libs/*.jar
